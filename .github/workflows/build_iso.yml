@@ -19,18 +19,7 @@ jobs:
       fail-fast: false
       matrix:
         image_name:
-          - bazzite
-          - bazzite-nvidia
-          - bazzite-gnome
           - bazzite-gnome-nvidia
-          - bazzite-deck
-          - bazzite-deck-gnome
-          - bazzite-ally
-          - bazzite-ally-gnome
-          - bazzite-asus
-          - bazzite-gnome-asus
-          - bazzite-asus-nvidia
-          - bazzite-gnome-asus-nvidia
         major_version: [40]
     steps:
 
@@ -141,7 +130,7 @@ jobs:
           echo "iso-upload-dir=${ISO_UPLOAD_DIR}" >> $GITHUB_OUTPUT
 
       - name: Upload ISOs and Checksum to Job Artifacts
-        if: github.ref_name == 'testing'
+        if: github.event_name == 'workflow_dispatch' && github.ref_name == 'main'
         #if: github.event_name == 'pull_request'
         uses: actions/upload-artifact@v4
         with:
@@ -153,7 +142,7 @@ jobs:
           overwrite: true
 
       - name: Upload ISOs and Checksum to R2
-        if: github.event_name == 'workflow_dispatch' && github.ref_name == 'main'
+        if: github.event_name == 'workflow_dispatch' && github.ref_name != 'main'
         shell: bash
         env:
           RCLONE_CONFIG_R2_TYPE: s3
