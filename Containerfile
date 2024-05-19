@@ -273,8 +273,6 @@ RUN rpm-ostree override remove \
 # Remove unneeded packages
 RUN rpm-ostree override remove \
         ublue-os-update-services \
-        firefox \
-        firefox-langpacks \
         htop && \
     ostree container commit
 

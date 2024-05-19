@@ -49,7 +49,6 @@ cp %{SOURCE1} %{buildroot}%{_datadir}/icons/hicolor/scalable/places/steamdeck-le
 rm %{buildroot}%{_sysconfdir}/sddm.conf.d/steamdeck.conf
 rm %{buildroot}%{_datadir}/icons/hicolor/scalable/places/distributor-logo.svg
 rm %{buildroot}%{_sysconfdir}/xdg/autostart/steam.desktop
-rm %{buildroot}%{_datadir}/applications/org.mozilla.firefox.desktop
 rm %{buildroot}%{_sysconfdir}/profile.d/kde.sh
 rm %{buildroot}%{_sysconfdir}/xdg/kcm-about-distrorc
 rm %{buildroot}%{_sysconfdir}/X11/Xsession.d/50rotate-screen
